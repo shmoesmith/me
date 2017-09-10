@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
-  namespace :api do
-    #API ROUTES SHOULD GO HERE
-  end
+    namespace :api do
+      resources :comments
+    end
+
+    namespace :api do
+      resources :skills
+    end
 
   #Do not place any routes below this one
   get '*other', to: 'static#index'
